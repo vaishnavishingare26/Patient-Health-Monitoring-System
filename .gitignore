@@ -1,0 +1,6 @@
+﻿__pycache__/
+*.pyc
+Captured_Images/
+PyWhatKit_DB.txt
+maintemp.jpg
+Hardware/CP210x_Windows_Drivers/

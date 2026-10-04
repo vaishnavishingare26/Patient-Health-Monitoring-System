@@ -1,0 +1,5 @@
+python version 3.9.20
+
+pip install opencv-python
+pip install pywhatkit
+pip install pygame

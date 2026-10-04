@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Patient Health Monitoring System</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+background:linear-gradient(to right,#ff6a6a,#ffb6b9);
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.login-box{
+width:380px;
+padding:40px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(10px);
+border-radius:12px;
+color:white;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.login-box h2{
+text-align:center;
+margin-bottom:25px;
+color:#fff;
+}
+
+.input-box{
+position:relative;
+margin-bottom:20px;
+}
+
+.input-box span{
+position:absolute;
+left:10px;
+top:10px;
+font-size:18px;
+}
+
+.input-box input{
+width:100%;
+padding:10px 10px 10px 35px;
+border:none;
+border-radius:6px;
+background:white;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:6px;
+background:#ff3b3b;
+color:white;
+font-weight:600;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#d90429;
+}
+
+.error{
+margin-top:10px;
+font-size:14px;
+color:yellow;
+text-align:center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h2>❤️ Patient Health Monitoring</h2>
+
+<div class="input-box">
+<span>👤</span>
+<input type="text" id="patient" placeholder="Patient Name">
+</div>
+
+<div class="input-box">
+<span>🩺</span>
+<input type="text" id="doctor" placeholder="Doctor Name">
+</div>
+
+<div class="input-box">
+<span>📱</span>
+<input type="text" id="phone" placeholder="Doctor Mobile Number">
+</div>
+
+<button onclick="startMonitoring()">Start Monitoring</button>
+
+<p class="error" id="errorMsg"></p>
+
+</div>
+
+<script>
+
+function startMonitoring(){
+
+let patient=document.getElementById("patient").value.trim();
+let doctor=document.getElementById("doctor").value.trim();
+let phone=document.getElementById("phone").value.trim();
+
+if(patient=="" || doctor=="" || phone==""){
+document.getElementById("errorMsg").innerText="Fill all fields";
+return;
+}
+
+if(phone.length!=10 || isNaN(phone)){
+document.getElementById("errorMsg").innerText="Enter valid mobile number";
+return;
+}
+
+/* Save data */
+
+localStorage.setItem("patient_name",patient);
+localStorage.setItem("doctor_name",doctor);
+localStorage.setItem("doctor_phone",phone);
+
+/* Go dashboard */
+
+window.location.href="dashboard.html";
+
+}
+
+</script>
+
+</body>
+</html>
